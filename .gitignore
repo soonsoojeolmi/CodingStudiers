@@ -1,4 +1,10 @@
 ### IntelliJ IDEA ###
+.idea/
+*.iml
+*.imi
+.idea/dataSources.xml
+.idea/vcs.xml
+.idea/libraries/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
@@ -27,3 +33,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### 라이브러리 관련 ###
+lib/*.jar

@@ -27,4 +27,27 @@ public class TravelService {
         this.travelDao = new TravelDao();
 
     }
+
+    public int deleteTravel(int no) {
+        int result = 0;
+        try {
+            con = dbcp.getConnection();
+            con.setAutoCommit(false);
+            result = travelDao.deleteTravel(con, no);
+
+            if (result > 0) {
+                con.commit();
+            } else {
+                con.rollback();
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (con != null) {
+                dbcp.freeConnection(con);
+            }
+        }
+
+        return result;
+    }
 }

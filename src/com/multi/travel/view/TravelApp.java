@@ -40,11 +40,10 @@ public class TravelApp {
 
                         break;
                     case 5:
-
+                        travelController.deleteTravel(inputTravelNo());
                         break;
                     case 6:
-
-                        break;
+                        return;
                     default:
                         System.out.println("번호를 잘못입력하였습니다.");
                         break;
@@ -58,4 +57,17 @@ public class TravelApp {
         } while (true);  // 무한 루프
     }
 
+    private int inputTravelNo() {
+        System.out.print("삭제할 관광지의 번호를 입력해 주세요: ");
+        return sc.nextInt();
+    }
+
+    public void displayDeleteSuccess(String message) {
+        System.out.println("서비스 요청 결과: " + message);
+    }
+
+    public void displayDeleteError(String message) {
+        System.out.println("서비스 요청 처리 실패 :"+ message);
+
+    }
 }
