@@ -1,7 +1,10 @@
 package com.multi.travel.view;
 
 import com.multi.travel.controller.TravelController;
+import com.multi.travel.dto.Travel;
 
+import java.lang.reflect.Member;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -34,7 +37,7 @@ public class TravelApp {
 
                         break;
                     case 3:
-
+                        travelController.selectByTitle(inputTitleName());
                         break;
                     case 4:
 
@@ -58,4 +61,34 @@ public class TravelApp {
         } while (true);  // 무한 루프
     }
 
+    private String inputTitleName() {
+        System.out.println("찾는 키워드 입력 : ");
+        return sc.next();
+    }
+
+    public void displayTravel(Travel travel) {
+        System.out.println("\n조회된 관광지 정보는 다음과 같습니다.");
+        System.out.println("\n번호\t권역\t제목\t설명\t주소\t전화번호");
+        System.out.println("------------------------------------");
+
+        System.out.println(travel);
+    }
+
+    public void displayNoData() {
+        System.out.println("조회된 결과가 없습니다.");
+    }
+
+    public void displayError(String message) {
+        System.out.println("서비스 요청 처리 실패 :"+ message);
+    }
+
+    public void displayTravelList(ArrayList<Travel> list) {
+        System.out.println("\n조회된 관광지 정보는 다음과 같습니다.");
+        System.out.println("\n번호\t권역\t제목\t설명\t주소\t전화번호");
+        System.out.println("------------------------------------");
+
+        for (Travel t : list) {
+            System.out.println(t);
+        }
+    }
 }
