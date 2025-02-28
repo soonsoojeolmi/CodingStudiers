@@ -27,4 +27,18 @@ public class TravelService {
         this.travelDao = new TravelDao();
 
     }
+
+    public int insertTravel(int no, String district, String title, String description, String address, String phone) throws Exception {
+        int result = 0;
+        con=dbcp.getConnection();
+        con.setAutoCommit(false);
+        result = travelDao.insertTravel(no, district, title, description, address, phone);
+
+        if(result > 0){
+            con.commit();
+        }else{
+            con.rollback();
+        }
+        return result;
+    }
 }

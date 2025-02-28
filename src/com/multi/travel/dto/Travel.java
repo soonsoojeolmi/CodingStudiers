@@ -8,6 +8,17 @@ public class Travel {
     private String address;
     private String phone;
 
+    public Travel(){}
+
+    public Travel(int no, String district, String title, String description, String address, String phone) {
+        this.no=no;
+        this.district=district;
+        this.title=title;
+        this.description=description;
+        this.address=address;
+        this.phone=phone;
+    }
+
     public int getNo() {
         return no;
     }
